@@ -1,0 +1,10 @@
+replicaCount: 1
+image:
+  repository: nginx
+  tag: stable
+  pullPolicy: IfNotPresent
+service:
+  name: mychart
+  type: ClusterIP
+  port: 80
+
