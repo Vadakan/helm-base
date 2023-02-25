@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: httpd
-  tag: 2.3
+  tag: 2.4
 
 service:
   type: ClusterIP
