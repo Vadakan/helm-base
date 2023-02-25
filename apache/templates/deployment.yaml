@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "apache.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "apache.name" . }}
+      chart: {{ include "apache.chart" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "apache.name" . }}
+        chart: {{ include "apache.chart" . }}
+    spec:
+      containers:
+        - name: apache
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - name: http
+              containerPort: 80
+
